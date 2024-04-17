@@ -23,7 +23,7 @@ class CubitScreen extends StatelessWidget {
         child: BlocBuilder<UsernameCubit, String>(
           // buildWhen: (previous, current) => previous != current,
           builder: (context, state) {
-            print('Cambió');
+            //print('Cambió');
             return Text(state);
           },
         )

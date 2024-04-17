@@ -20,6 +20,8 @@ class BlocsProviders extends StatelessWidget {
       providers: [
         //BlocProvider(create: (context) => UsernameCubit(), lazy: false, ),
         BlocProvider(create: (context) => UsernameCubit() ),
+        BlocProvider(create: (context) => RouterSimpleCubit() ),
+        BlocProvider(create: (context) => CounterCubit() ),
         
         //BlocProvider(create: (context) => getIt<UsernameCubit>() ),
         //BlocProvider(create: (context) => getIt<RouterSimpleCubit>() ),
@@ -40,6 +42,8 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
+    final appRouter = context.watch<RouterSimpleCubit>().state;
 
     return MaterialApp.router(
       title: 'Flutter BLoC',
