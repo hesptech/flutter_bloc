@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import 'package:blocs_app/config/config.dart';
 import 'package:blocs_app/presentation/blocs/blocs.dart';
 
 class MultipleCubitScreen extends StatelessWidget {
@@ -9,7 +10,9 @@ class MultipleCubitScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
-    final usernameCubit = context.watch<CounterCubit>();
+    final counterCubit = context.watch<CounterCubit>();
+    final themeCubit = context.watch<ThemeCubit>();
+    final usernameCubit = context.watch<UsernameCubit>();
 
     return Scaffold(
       appBar: AppBar(
@@ -22,17 +25,22 @@ class MultipleCubitScreen extends StatelessWidget {
 
             IconButton(
               // icon: const Icon( Icons.light_mode_outlined, size: 100 ),
-              icon: const Icon( Icons.dark_mode_outlined, size: 100 ),
-              onPressed: () {},
+              icon: themeCubit.state.isDarkmode ? 
+              const Icon( Icons.dark_mode_outlined, size: 100 ) :
+              const Icon( Icons.light_mode_outlined, size: 100 )
+              ,
+              onPressed: () {
+                themeCubit.toggleTheme();
+              },
             ),
 
-            const Text('Fernando Herrera', style: TextStyle(fontSize: 25 )),
+            Text(usernameCubit.state, style: const TextStyle(fontSize: 25 )),
 
             TextButton.icon(
               icon: const Icon( Icons.add, size: 50,),
-              label: Text('${usernameCubit.state}', style: const TextStyle(fontSize: 100)),
+              label: Text('${counterCubit.state}', style: const TextStyle(fontSize: 100)),
               onPressed: () {
-                usernameCubit.incrementBy(5);
+                counterCubit.incrementBy(5);
               },
             ),
             
@@ -43,7 +51,12 @@ class MultipleCubitScreen extends StatelessWidget {
       floatingActionButton: FloatingActionButton.extended(
         label: const Text('Nombre aleatorio'),
         icon: const Icon( Icons.refresh_rounded ),
-        onPressed: () {},
+        onPressed: () {
+          context.read<UsernameCubit>().setUsername(
+            RandomGenerator.getRandomName()
+            //'Fernando'
+          );
+        },
       ),
     );
   }

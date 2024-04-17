@@ -5,7 +5,7 @@ import 'package:blocs_app/config/config.dart';
 import 'package:blocs_app/presentation/blocs/blocs.dart';
 
 void main(){
-  //serviceLocatorInit();
+  serviceLocatorInit();
 
   runApp(const BlocsProviders());
 }
@@ -19,14 +19,16 @@ class BlocsProviders extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         //BlocProvider(create: (context) => UsernameCubit(), lazy: false, ),
-        BlocProvider(create: (context) => UsernameCubit() ),
-        BlocProvider(create: (context) => RouterSimpleCubit() ),
-        BlocProvider(create: (context) => CounterCubit() ),
+        //BlocProvider(create: (context) => UsernameCubit() ),
+        //BlocProvider(create: (context) => RouterSimpleCubit() ),
+        //BlocProvider(create: (context) => CounterCubit() ),
+        //BlocProvider(create: (context) => ThemeCubit() ),
+
         
-        //BlocProvider(create: (context) => getIt<UsernameCubit>() ),
-        //BlocProvider(create: (context) => getIt<RouterSimpleCubit>() ),
-        //BlocProvider(create: (context) => getIt<CounterCubit>() ),
-        //BlocProvider(create: (context) => getIt<ThemeCubit>() ),
+        BlocProvider(create: (context) => getIt<UsernameCubit>() ),
+        BlocProvider(create: (context) => getIt<RouterSimpleCubit>() ),
+        BlocProvider(create: (context) => getIt<CounterCubit>() ),
+        BlocProvider(create: (context) => getIt<ThemeCubit>() ),
         //BlocProvider(create: (context) => getIt<GuestsBloc>() ),
         //BlocProvider(create: (context) => getIt<PokemonBloc>() ),
         //BlocProvider(create: (context) => getIt<GeolocationCubit>() ),
@@ -44,12 +46,14 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
 
     final appRouter = context.watch<RouterSimpleCubit>().state;
+    final appTheme = context.watch<ThemeCubit>().state;
+
 
     return MaterialApp.router(
       title: 'Flutter BLoC',
       debugShowCheckedModeBanner: false,
       routerConfig: appRouter,
-      theme: AppTheme( isDarkmode: false ).getTheme(),
+      theme: AppTheme( isDarkmode: appTheme.isDarkmode ).getTheme(),
     );
   }
 }
