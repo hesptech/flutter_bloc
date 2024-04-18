@@ -23,6 +23,7 @@ class BlocsProviders extends StatelessWidget {
         //BlocProvider(create: (context) => RouterSimpleCubit() ),
         //BlocProvider(create: (context) => CounterCubit() ),
         //BlocProvider(create: (context) => ThemeCubit() ),
+        BlocProvider(create: (context) => GuestsBloc() ),
 
         
         BlocProvider(create: (context) => getIt<UsernameCubit>() ),
