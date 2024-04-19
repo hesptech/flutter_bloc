@@ -13,7 +13,7 @@ void serviceLocatorInit() {
   getIt.registerSingleton(ThemeCubit());
 
 
-  /* getIt.registerSingleton(GuestsBloc());
+  getIt.registerSingleton(GuestsBloc());
   getIt.registerSingleton(
     PokemonBloc(
       fetchPokemon: PokemonInformation.getPokemonName,
@@ -21,7 +21,7 @@ void serviceLocatorInit() {
   );
 
   
-  // final historicBloc = getIt.registerSingleton( HistoricLocationBloc() );
+  /* // final historicBloc = getIt.registerSingleton( HistoricLocationBloc() );
   getIt.registerSingleton( HistoricLocationBloc() );
 
 
