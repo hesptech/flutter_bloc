@@ -20,8 +20,10 @@ void serviceLocatorInit() {
     )
   );
 
+  //getIt.registerSingleton(GeolocationCubit()..watchUserLocation());
+  //getIt.registerSingleton(HistoricLocationBloc());
   
-  /* // final historicBloc = getIt.registerSingleton( HistoricLocationBloc() );
+  // final historicBloc = getIt.registerSingleton( HistoricLocationBloc() );
   getIt.registerSingleton( HistoricLocationBloc() );
 
 
@@ -31,7 +33,7 @@ void serviceLocatorInit() {
         onNewUserLocationCallback: getIt<HistoricLocationBloc>().onNewUserLocation,
       )
         ..watchUserLocation()
-  ); */
+  );
 
 
 }
