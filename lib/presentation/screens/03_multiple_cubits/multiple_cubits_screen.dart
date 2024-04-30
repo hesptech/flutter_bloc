@@ -10,9 +10,9 @@ class MultipleCubitScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
-    final counterCubit = context.watch<CounterCubit>();
     final themeCubit = context.watch<ThemeCubit>();
     final usernameCubit = context.watch<UsernameCubit>();
+    final counterCubit = context.watch<CounterCubit>();
 
     return Scaffold(
       appBar: AppBar(

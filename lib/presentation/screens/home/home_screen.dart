@@ -8,7 +8,7 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Flutter Bloc & Cubits'),
+        title: const Text('Mini-Curso: Flutter BLoC (+Cubit)'),
       ),
       body: const _HomeScreenView(),
     );
@@ -24,33 +24,33 @@ class _HomeScreenView extends StatelessWidget {
       children: const [
 
         _CustomListTile(
-            title: 'Un Bloc simple',
-            subTitle: 'Un uso simple de un Cubit',
+            title: '01 - Cubit simple',
+            subTitle: 'BlocBuilder',
             location: '/simple-cubit'),
 
         _CustomListTile(
-            title: 'Cubit + Go_Router',
-            subTitle: 'Un uso aplicado',
+            title: 'GoRouter - Cubit (+ GoRouter)',
+            subTitle: 'routing',
             location: '/cubit-router'),
 
         _CustomListTile(
-            title: 'Multiples cubits',
-            subTitle: 'Multiples cubits en acción',
+            title: '03 - Cubits Multiples',
+            subTitle: 'Theme, NameGenerator, Counter',
             location: '/cubit-state'),
 
         _CustomListTile(
-            title: 'Bloc - GuestBloc',
-            subTitle: 'Un bloc para el manejo de invitados',
+            title: '04 - BLoC - GuestBloc - Manejo invitados',
+            subTitle: 'SegmentedButton, Filters, SwitchListTile, NameGenerator',
             location: '/guest-bloc'),
 
         _CustomListTile(
-            title: 'Pokemon Bloc',
-            subTitle: 'Bloc con futures y caché',
+            title: '05 - BLoC Pokemon',
+            subTitle: 'FutureBuilder, caché, setState, Map containsKey',
             location: '/pokemon-bloc'),
 
         _CustomListTile(
-            title: 'Blocs con Blocs',
-            subTitle: 'Blocs que dependen de otros blocs',
+            title: '06/07 - BLoCs depended with other BLoCs',
+            subTitle: 'reversed.toList(), Google Maps Routes Geolocator.getPositionStream  \nGetIt BLoC geolocation instance passes BLoC historic function to BLOC geolocation to method which calls it',
             location: '/blocs-with-blocs'),
 
       ],
